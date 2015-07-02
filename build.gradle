@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+// build should resolve its dependencies from the Maven Central repository
+repositories {
+    mavenCentral()
+}
+
+// default current JVM version in use
+//sourceCompatibility = 1.7
+//targetCompatibility = 1.7
+
+// a compile dependency
+dependencies {
+    compile "joda-time:joda-time:2.8.1"
+}
+
+// specify the name for our JAR artifact gs-gradle-0.1.0.jar
+// default project name
+//jar {
+    //baseName = 'gs-gradle'
+    //version =  '0.1.0'
+//}
+
+// build with Gradle Wrapper
+// generate gradle folder and gradlew.bat/gradlew.sh 
+// allows run a Gradle build w/o requiring that Gradle be installed
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+// run the application
+apply plugin: 'application'
+mainClassName = 'main.java.hello.HelloWorld'
